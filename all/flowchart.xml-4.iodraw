@@ -1,6 +1,6 @@
 <mxfile host="www.iodraw.com" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0" version="24.7.17">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="2620" dy="1443" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="786" dy="433" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -44,6 +44,219 @@
         </mxCell>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-12" value="Replace Bulb" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="320" y="310" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-0" value="graph TD&#xa;    %% 定义节点样式&#xa;    classDef start fill:#2c3e50,stroke:#34495e,stroke-width:2px,color:white;&#xa;    classDef process fill:#eaf2f8,stroke:#5dade2,stroke-width:2px;&#xa;    classDef model fill:#fff9c4,stroke:#fbc02d,stroke-width:2px;&#xa;    classDef sample fill:#e8f8f5,stroke:#1abc9c,stroke-width:2px;&#xa;    classDef analysis fill:#f4ecf7,stroke:#af7ac5,stroke-width:2px;&#xa;    classDef mechanism fill:#fadbd8,stroke:#e74c3c,stroke-width:2px;&#xa;    classDef result fill:#2e86c1,stroke:#1b4f72,stroke-width:2px,color:white;&#xa;&#xa;    %% --- 第一部分：立项依据 ---&#xa;    Start(立项依据: AMI诱发肠道微生态失衡与全身炎症风暴&lt;br&gt;导致心室重构及应激性胃黏膜损伤) ::: start&#xa;    Hypothesis(科学假说: 肠溶蛋白药物通过重塑肠道菌群与代谢&lt;br&gt;修复肠屏障-抑制全身应激-实现心胃同治) ::: start&#xa;    Start --&amp;gt; Hypothesis&#xa;&#xa;    %% --- 第二部分：模型与干预 ---&#xa;    subgraph P1 [阶段一: 动物模型构建与药物干预]&#xa;        direction TB&#xa;        Animals[C57BL/6J 小鼠] ::: model&#xa;        Group[分组: Sham, MI模型, MI+药物X] ::: model&#xa;        Timeline[干预策略: 术前14天预给药 + 术后持续给药] ::: model&#xa;        Surgery[LAD冠脉结扎造模] ::: model&#xa;        &#xa;        Animals --&amp;gt; Group --&amp;gt; Timeline --&amp;gt; Surgery&#xa;    end&#xa;    Hypothesis --&amp;gt; P1&#xa;&#xa;    %% --- 第三部分：样本采集与表型 ---&#xa;    subgraph P2 [阶段二: 多维表型与关键窗口期取材]&#xa;        direction TB&#xa;        &#xa;        %% 分支1: 急性期&#xa;        Acute[Day 3: 急性损伤窗口期] ::: sample&#xa;        Acute_Heart[心脏: TTC染色&lt;br&gt;梗死面积] ::: process&#xa;        Acute_Gut[肠道: 免疫荧光&lt;br&gt;ZO-1/Occludin屏障] ::: process&#xa;        Acute_Stomach[胃: Guthrie溃疡评分&lt;br&gt;HE染色/PGE2检测] ::: process&#xa;        &#xa;        %% 分支2: 慢性期&#xa;        Chronic[Day 28: 重构修复窗口期] ::: sample&#xa;        Chronic_Heart[心脏: 超声心动图&lt;br&gt;Masson染色/纤维化] ::: process&#xa;        Chronic_Blood[血液: 炎症因子&lt;br&gt;IL-6/TNF-α/LPS] ::: process&#xa;        &#xa;        Acute --&amp;gt; Acute_Heart &amp;amp; Acute_Gut &amp;amp; Acute_Stomach&#xa;        Chronic --&amp;gt; Chronic_Heart &amp;amp; Chronic_Blood&#xa;    end&#xa;    Surgery --&amp;gt; P2&#xa;&#xa;    %% --- 第四部分：多组学机制 ---&#xa;    subgraph P3 [阶段三: 肠道微生态多组学机制解析]&#xa;        direction TB&#xa;        MetaG[宏基因组测序 Metagenomics] ::: analysis&#xa;        MetaB[非靶向/靶向代谢组学] ::: analysis&#xa;        BioInfo[生物信息学分析] ::: analysis&#xa;        &#xa;        KeyBac[关键差异菌属&lt;br&gt;如: Lactobacillus↑ Proteobacteria↓] ::: analysis&#xa;        KeyPath[关键功能通路&lt;br&gt;如: SCFA合成, ABC转运] ::: analysis&#xa;        &#xa;        MetaG &amp;amp; MetaB --&amp;gt; BioInfo --&amp;gt; KeyBac &amp;amp; KeyPath&#xa;    end&#xa;    P2 --&amp;gt; P3&#xa;&#xa;    %% --- 第五部分：关联与验证 ---&#xa;    subgraph P4 [阶段四: 关联分析与因果验证]&#xa;        direction TB&#xa;        Corr[多维关联分析&lt;br&gt;Spearman Correlation] ::: mechanism&#xa;        FMT[关键验证实验: 菌群移植 FMT&lt;br&gt;供体: 药物组小鼠 -&amp;gt; 受体: 抗希处理MI小鼠] ::: mechanism&#xa;        Verify[验证受体小鼠心/胃表型改善&lt;br&gt;确证菌群介导机制] ::: mechanism&#xa;        &#xa;        Corr --&amp;gt; FMT --&amp;gt; Verify&#xa;    end&#xa;    KeyBac --&amp;gt; Corr&#xa;    Chronic_Heart &amp;amp; Acute_Stomach --&amp;gt; Corr&#xa;    &#xa;    %% --- 结论 ---&#xa;    Conclusion(预期成果: 阐明肠溶蛋白药物经肠-心-胃轴&lt;br&gt;发挥系统性保护作用的新机制) ::: result&#xa;    Verify --&amp;gt; Conclusion&#xa;&#xa;    %% 连接线说明&#xa;    linkStyle default stroke:#333,stroke-width:1.5px;" style="text;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry width="410" height="1350" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-1" value="阶段四: 关联分析与因果验证" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="237" y="2507" width="1108" height="296" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-2" value="阶段三: 肠道微生态多组学机制解析" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="20" y="2136" width="348" height="321" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-3" value="阶段二: 多维表型与关键窗口期取材" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="388" y="2012" width="1054" height="222" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-4" value="阶段一: 动物模型构建与药物干预" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="514" y="1567" width="193" height="395" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-5" value="Start" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="563" y="1370" width="95" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-6" value="Hypothesis" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="542" y="1469" width="137" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-7" value="Animals" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="552" y="1592" width="116" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-8" value="Group" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="559" y="1691" width="103" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-9" value="Timeline" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="549" y="1790" width="123" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-10" value="Surgery" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="553" y="1888" width="114" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-11" value="Acute" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="559" y="2037" width="102" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-12" value="Acute_Heart" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="830" y="2161" width="151" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-13" value="Acute_Gut" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="644" y="2161" width="136" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-14" value="Acute_Stomach" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="423" y="2161" width="171" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-15" value="Chronic" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="1162" y="2037" width="114" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-16" value="Chronic_Heart" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="1244" y="2161" width="163" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-17" value="Chronic_Blood" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="1031" y="2161" width="163" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-18" value="MetaG" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="58" y="2161" width="106" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-19" value="MetaB" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="227" y="2161" width="105" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-20" value="BioInfo" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="140" y="2284" width="110" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-21" value="KeyBac" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="222" y="2383" width="111" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-22" value="KeyPath" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="55" y="2383" width="117" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-23" value="Corr" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="463" y="2532" width="91" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-24" value="FMT" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="464" y="2630" width="89" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-25" value="Verify" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="457" y="2729" width="102" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-26" value="Conclusion" style="whiteSpace=wrap;strokeWidth=2;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="440" y="2853" width="137" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-27" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.5;entryY=-0.01;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-5" target="GIKUMdo4qmgfjmp0i31N-6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-28" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-7" target="GIKUMdo4qmgfjmp0i31N-8" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-29" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.5;entryY=-0.01;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-8" target="GIKUMdo4qmgfjmp0i31N-9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-30" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.5;entryY=0.01;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-9" target="GIKUMdo4qmgfjmp0i31N-10" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-31" value="" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.67;entryX=0.5;entryY=-0.01;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-11" target="GIKUMdo4qmgfjmp0i31N-12" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="906" y="2111" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-32" value="" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.99;entryX=0.5;entryY=-0.01;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-11" target="GIKUMdo4qmgfjmp0i31N-13" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="712" y="2111" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-33" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.01;exitY=0.99;entryX=0.5;entryY=-0.01;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-11" target="GIKUMdo4qmgfjmp0i31N-14" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="508" y="2111" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-34" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.96;exitY=0.99;entryX=0.5;entryY=-0.01;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-15" target="GIKUMdo4qmgfjmp0i31N-16" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1325" y="2111" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-35" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.04;exitY=0.99;entryX=0.5;entryY=-0.01;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-15" target="GIKUMdo4qmgfjmp0i31N-17" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1112" y="2111" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-36" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.12;entryY=0.01;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-18" target="GIKUMdo4qmgfjmp0i31N-20" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="111" y="2259" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-37" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.49;exitY=0.99;entryX=0.88;entryY=0.01;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-19" target="GIKUMdo4qmgfjmp0i31N-20" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="279" y="2259" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-38" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.87;exitY=1;entryX=0.5;entryY=0;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-20" target="GIKUMdo4qmgfjmp0i31N-21" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="277" y="2358" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-39" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.14;exitY=1;entryX=0.5;entryY=0;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-20" target="GIKUMdo4qmgfjmp0i31N-22" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="114" y="2358" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-40" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.5;entryY=0.01;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-23" target="GIKUMdo4qmgfjmp0i31N-24" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-41" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-24" target="GIKUMdo4qmgfjmp0i31N-25" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-42" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0;entryY=0.29;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-21" target="GIKUMdo4qmgfjmp0i31N-23" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="277" y="2507" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-43" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=1;entryY=0.43;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-16" target="GIKUMdo4qmgfjmp0i31N-23" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1325" y="2507" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-44" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.5;entryY=-0.01;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-14" target="GIKUMdo4qmgfjmp0i31N-23" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-45" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.5;entryY=-0.01;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-25" target="GIKUMdo4qmgfjmp0i31N-26" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-46" value="" style="curved=1;startArrow=none;endArrow=block;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-6" target="GIKUMdo4qmgfjmp0i31N-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-47" value="" style="curved=1;startArrow=none;endArrow=block;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-10" target="GIKUMdo4qmgfjmp0i31N-3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GIKUMdo4qmgfjmp0i31N-48" value="" style="curved=1;startArrow=none;endArrow=block;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GIKUMdo4qmgfjmp0i31N-3" target="GIKUMdo4qmgfjmp0i31N-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
